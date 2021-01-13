@@ -864,7 +864,8 @@ def determine_partition_table(args: CommandLineArguments) -> Tuple[str, bool]:
             run_sfdisk = True
 
     if not is_generated_root(args):
-        table += 'type={}, attrs={}, name="Root Partition"\n'.format(
+        table += 'size={}, type={}, attrs={}, name="Root Partition"\n'.format(
+            args.root_size // 512,
             gpt_root_native(args.architecture).root,
             "GUID:60" if args.read_only and args.output_format != OutputFormat.gpt_btrfs else "",
         )
