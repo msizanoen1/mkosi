@@ -2103,7 +2103,7 @@ def install_fedora(args: CommandLineArguments, root: str, do_run_build_script: b
         ],
     )
 
-    packages = {"fedora-release", "glibc-minimal-langpack", "systemd", *args.packages}
+    packages = {"glibc-minimal-langpack", "systemd", *args.packages}
     if not do_run_build_script and args.bootable:
         packages |= {"kernel-core", "kernel-modules", "systemd-udev", "binutils", "dracut"}
         configure_dracut(args, root)
